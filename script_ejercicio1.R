@@ -14,10 +14,13 @@ mean(datos$Price)
 nrow(datos)
 
 
-
-
-
-
+# 10.	Calcula el precio medio de producto por pedido
+unique(datos$Description)
+library(dplyr)
+df<-datos %>%
+  group_by(Description)%>%
+  summarise(precio_medio=mean(Price))
+df
 
 
 
