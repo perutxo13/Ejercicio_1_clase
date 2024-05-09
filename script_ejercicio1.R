@@ -18,17 +18,24 @@ nrow(datos)
 unique(datos$Description)
 library(dplyr)
 df<-datos %>%
-  group_by(Description)%>%
+  group_by(Invoice)%>%
   summarise(precio_medio=mean(Price))
 df
 
 
+# 12.	Calcula el número de productos por pedido
+datos
+df2 <- datos %>%
+  group_by(Invoice)%>%
+  summarise(cantidad=n())
+df2
 
 
-
-
-
-
+# 13.	Calcula el precio por pedido
+df3<-datos %>%
+  group_by(Invoice)%>%
+  summarise(precio_total=sum(Price))
+df3
 
 
 
